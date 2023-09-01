@@ -18,5 +18,6 @@ public class Employeedetails implements Function<Employee , String> {
         employeedao.save(employee);
         return "employee added sucessfully";
     }
+    
 
 }
