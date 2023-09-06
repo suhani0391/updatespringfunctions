@@ -1,32 +1,35 @@
 package com.example1.updatespringfunction;
 
-import java.util.List;
+//import java.util.List;
 import java.util.function.Function;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.annotation.Bean;
 
-import com.example1.updatespringfunction.Dao.Employeedao;
-import com.example1.updatespringfunction.Entity.Employee;
+// import com.example1.updatespringfunction.Dao.Employeedao;
+// import com.example1.updatespringfunction.Entity.Employee;
 
-@SpringBootApplication
+
+@ConfigurationPropertiesScan
+@SpringBootApplication(scanBasePackages = {"com.example1.updatespringfunction","com.example1.updatespringfunction.Springfunctions","com.example1.updatespringfunction.Dao","com.example1.updatespringfunction.Entity"})
 public class UpdatespringfunctionApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(UpdatespringfunctionApplication.class, args);
 	}
 
-	 @Autowired
- private Employeedao employeedao;
+// 	 @Autowired
+//  private Employeedao employeedao;
 
 
 
-@Bean
-public Function<String , String > greeting(){
-	return input -> "Hello, " + input;
-}
+// @Bean
+// public Function<String , String > greeting(){
+// 	return input -> "Hello, " + input;
+// }
 
 @Bean
 public Function<String, String> stringLength() {
@@ -43,15 +46,15 @@ public Function<String, String> stringLength() {
 // }
 
 
-@Bean
-public Function< Void , List<Employee>> getEmployee()
-{
-	return (Void v) -> {
-        List<Employee> employees = employeedao.findAll();
-        return employees;
-    };
+// @Bean
+// public Function<String, List<Employee>> getEmployee() {
+//     return (String queryParameter) -> {
+//         List<Employee> employees = employeedao.findAll();
+//         return employees;
+//     };
+// }
 
-}
+
 
 
 

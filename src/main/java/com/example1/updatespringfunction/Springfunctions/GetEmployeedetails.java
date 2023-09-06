@@ -1,5 +1,6 @@
 package com.example1.updatespringfunction.Springfunctions;
 
+import java.util.List;
 import java.util.function.Function;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,19 +10,13 @@ import com.example1.updatespringfunction.Dao.Employeedao;
 import com.example1.updatespringfunction.Entity.Employee;
 
 @Component
-public class Employeedetails implements Function<Employee , String> {
-     
+public class GetEmployeedetails implements Function<String, List<Employee>> {
+
     @Autowired
     private Employeedao employeedao;
-    
+
     @Override
-    public String apply(Employee employee)
-    {
-        employeedao.save(employee);
-        return "employee added sucessfully";
+    public List<Employee> apply(String queryParameter) {
+        return employeedao.findAll();
     }
-
 }
-
-
-// >curl -H "Content-Type: application/json" -X POST http://localhost:8080/employeedetails -d "{\"id\":141115, \"name\":\"shanu\", \"email\":\"shanusinghal3@gmail.com\", \"password\":\"1234\"}"
