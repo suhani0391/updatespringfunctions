@@ -3,12 +3,9 @@ package com.example1.updatespringfunction.Springfunctions;
 import java.util.function.Function;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import com.example1.updatespringfunction.Dao.Employeedao;
 import com.example1.updatespringfunction.Entity.Employee;
 
-@Component
 public class Employeedetails implements Function<Employee , String> {
      
     @Autowired
